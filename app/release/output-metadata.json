@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "ru.apilot.liveweb",
+  "applicationId": "org.antlive.app",
   "variantName": "release",
   "elements": [
     {

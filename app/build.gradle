@@ -1,10 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\pr\\Int\\Android\\LiveWebApp\\keystore.jks')
+            storePassword '123456'
+            keyPassword '123456'
+            keyAlias 'key'
+        }
+    }
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId 'ru.apilot.liveweb'
+        applicationId 'org.antlive.app'
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
