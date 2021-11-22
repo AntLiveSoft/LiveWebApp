@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html style="height: 100% !important;">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>Live (web)</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="icon" href="favicon.svg" />
+        <script src="https://antlive.org/lib/main.js"></script>
+    </head>
+    <body style="margin: 0; height: 100%;width:100%;">
+        <div id="id_live_app" style="height: 100%;width:100%;"></div>
+        <script>
+            (function () {
+                antLiveWeb.createApi({ 
+                  idContainer: "id_live_app",
+                  searchCode: "Трезвые водители на карте",
+                  hideSearch: !0,
+                  hideMapSelector: !0,
+                  hideActionMenu: !0,
+                  map: "osm_de", 
+                  language: "ru" });
+            })();
+        </script>
+    </body>
+</html>
