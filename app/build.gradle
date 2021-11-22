@@ -4,7 +4,7 @@ android {
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId 'ru.a-pilot.liveweb'
+        applicationId 'ru.apilot.liveweb'
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1

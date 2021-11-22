@@ -1,4 +1,4 @@
-package com.example.app;
+package ru.antliveweb.app;
 
 import android.content.Intent;
 import android.net.Uri;

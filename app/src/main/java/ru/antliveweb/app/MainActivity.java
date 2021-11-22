@@ -1,11 +1,15 @@
-package com.example.app;
+package ru.antliveweb.app;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import ru.antliveweb.app.R;
 
 public class MainActivity extends Activity {
 
@@ -23,12 +27,17 @@ public class MainActivity extends Activity {
         webSettings.setDomStorageEnabled(true);
         webSettings.setDatabaseEnabled(true);
         webSettings.setUseWideViewPort(true);
-        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setLoadWithOverviewMode(false);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
-        webSettings.setAllowFileAccessFromFileURLs(true);
+        webSettings.setAllowFileAccessFromFileURLs(false);
 
-        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.setWebViewClient(new WebViewClient(){
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    view.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                    return true;
+            }
+        });
         mWebView.loadUrl("file:///android_asset/www/index.html");
     }
 
