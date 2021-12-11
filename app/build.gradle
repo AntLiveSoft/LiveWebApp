@@ -12,7 +12,7 @@ android {
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId 'org.antlive.app'
+        applicationId 'com.example.yourapp'
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
@@ -24,7 +24,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all { variant ->
                 variant.outputs.all {
-                    outputFileName = "antlive-app.apk"
+                    outputFileName = "antlive-yourapp.apk"
                 }
             }
         }
