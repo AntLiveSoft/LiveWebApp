@@ -27,10 +27,10 @@ public class MainActivity extends Activity {
         webSettings.setDomStorageEnabled(true);
         webSettings.setDatabaseEnabled(true);
         webSettings.setUseWideViewPort(true);
-        webSettings.setLoadWithOverviewMode(false);
+        webSettings.setLoadWithOverviewMode(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(true);
-        webSettings.setAllowFileAccessFromFileURLs(false);
+        webSettings.setAllowFileAccessFromFileURLs(true);
 
         mWebView.setWebViewClient(new WebViewClient(){
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
                     return true;
             }
         });
+        mWebView.setWebContentsDebuggingEnabled(true);
         mWebView.loadUrl("file:///android_asset/www/index.html");
     }
 

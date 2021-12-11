@@ -6,25 +6,29 @@
         <title>Live (web)</title>
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="icon" href="favicon.svg" />
-        <script src="https://antlive.org/lib/main.js"></script>
+        <script src="https://antlive.org/main.js"></script>
     </head>
-    <body style="margin: 0; height: 100%;width:100%;">
-        <div id="id_live_app" style="height: 100%;width:100%;">
+    <body style="margin: 0; height: 100%;">
+        <div id="id_live_app" style="height: 100%;">
 			<div style='display:flex;align-items: center;justify-content: center;;height:100%;width:100%'>
-				Turn on the Internet for the app, then restart the app!
+			Turn on the Internet for the app, then restart the app!
 			</div>
 		</div>
         <script>
-            (function () {
-                antLiveWeb.createApi({ 
-                  idContainer: "id_live_app",
-                  searchCode: "",
-                  hideSearch: !0,
-                  hideMapSelector: !0,
-                  hideActionMenu: !0,
-                  map: "osm_de", 
-                  language: "ru" });
-            })();
+            var searchCodeFromUrl = new URLSearchParams(window.location.search).get("searchCode");
+            antLiveWeb.createApi({
+                idContainer: "id_live_app",
+                searchCode: searchCodeFromUrl,
+                showSearch: !(searchCodeFromUrl && 0 == searchCodeFromUrl.indexOf("aslf-")),
+                showMapSelector: !0,
+                showActionMenu: !0,
+                showFilterActualDevices: !(searchCodeFromUrl && 0 == searchCodeFromUrl.indexOf("aslf-")),
+                filterActualDevices: searchCodeFromUrl && searchCodeFromUrl.indexOf("aslf-") > 0 ? "all" : "week",
+                onSearchByCode: function (e) {
+                    const r = new URLSearchParams(window.location.search);
+                    r.set("searchCode", e), history.pushState("", document.title, window.location.origin + "?" + r.toString());
+                },
+            });
         </script>
     </body>
 </html>

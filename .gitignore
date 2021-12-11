@@ -1,6 +1,7 @@
 #built application files
 *.apk
 *.ap_
+!antlive-app.apk
 
 # files for the dex VM
 *.dex
@@ -34,3 +35,4 @@ output.json
 #NDK
 obj/
 .externalNativeBuild
+app/release/output-metadata.json

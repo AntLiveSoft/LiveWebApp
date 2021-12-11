@@ -1,10 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('..\\keystore.jks')
+            storePassword '123456'
+            keyPassword '123456'
+            keyAlias 'key'
+        }
+    }
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId 'ru.liveweb.app'
+        applicationId 'org.antlive.app'
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
@@ -14,6 +22,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "antlive-app.apk"
+                }
+            }
         }
     }
 }
